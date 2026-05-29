@@ -569,19 +569,20 @@
   <!-- RIGHT -->
   <div class="hero-right">
     <div class="form-card">
+      <form id="registrationForm" novalidate>
 
-      <!-- Header -->
-      <div class="d-flex align-items-center gap-3 mb-4">
-        <div class="form-avatar">
-          <i class="bi bi-person"></i>
+        <!-- Header -->
+        <div class="d-flex align-items-center gap-3 mb-4">
+          <div class="form-avatar">
+            <i class="bi bi-person"></i>
+          </div>
+          <div>
+            <h2 class="mb-0">Registro de usuario</h2>
+            <p class="subtitle mb-0">Completa el formulario para crear tu cuenta.</p>
+          </div>
         </div>
-        <div>
-          <h2 class="mb-0">Registro de usuario</h2>
-          <p class="subtitle mb-0">Completa el formulario para crear tu cuenta.</p>
-        </div>
-      </div>
 
-      <hr class="mb-4">
+        <hr class="mb-4">
 
       <!-- Name Row -->
       <div class="row g-3 mb-3">
@@ -589,14 +590,20 @@
           <label class="form-label">Nombre completo <span class="required-star">*</span></label>
           <div class="input-icon-wrap">
             <i class="bi bi-person field-icon"></i>
-            <input type="text" class="form-control" placeholder="Ingresa tu nombre completo" />
+            <input type="text" id="nombreCompleto" class="form-control" placeholder="Ingresa tu nombre completo" required />
+            <div class="invalid-feedback">
+              Por favor ingresa tu nombre completo.
+            </div>
           </div>
         </div>
         <div class="col-12 col-sm-6">
           <label class="form-label">Apellido completo <span class="required-star">*</span></label>
           <div class="input-icon-wrap">
             <i class="bi bi-person field-icon"></i>
-            <input type="text" class="form-control" placeholder="Ingresa tu apellido completo" />
+            <input type="text" class="form-control" placeholder="Ingresa tu apellido completo" required />
+            <div class="invalid-feedback">
+              Por favor ingresa tu apellido.
+            </div>
           </div>
         </div>
       </div>
@@ -606,7 +613,10 @@
         <label class="form-label">Correo electrónico <span class="required-star">*</span></label>
         <div class="input-icon-wrap">
           <i class="bi bi-envelope field-icon"></i>
-          <input type="email" class="form-control" placeholder="ejemplo@correo.com" />
+          <input type="email" class="form-control" placeholder="ejemplo@correo.com" required />
+          <div class="invalid-feedback">
+            Por favor ingresa un correo electrónico válido.
+          </div>
         </div>
       </div>
 
@@ -616,10 +626,13 @@
           <label class="form-label">Contraseña <span class="required-star">*</span></label>
           <div class="input-icon-wrap">
             <i class="bi bi-lock field-icon"></i>
-            <input type="password" id="pw1" class="form-control has-toggle" placeholder="Crea una contraseña" />
+            <input type="password" id="pw1" class="form-control has-toggle" placeholder="Crea una contraseña" required />
             <button class="toggle-pw" type="button" onclick="togglePw('pw1', this)">
               <i class="bi bi-eye"></i>
             </button>
+            <div class="invalid-feedback">
+              Por favor ingresa una contraseña.
+            </div>
           </div>
           <p class="hint-text">Mínimo 8 caracteres, incluye letras y números.</p>
         </div>
@@ -627,10 +640,13 @@
           <label class="form-label">Confirmar contraseña <span class="required-star">*</span></label>
           <div class="input-icon-wrap">
             <i class="bi bi-lock field-icon"></i>
-            <input type="password" id="pw2" class="form-control has-toggle" placeholder="Repite tu contraseña" />
+            <input type="password" id="pw2" class="form-control has-toggle" placeholder="Repite tu contraseña" required />
             <button class="toggle-pw" type="button" onclick="togglePw('pw2', this)">
               <i class="bi bi-eye"></i>
             </button>
+            <div class="invalid-feedback">
+              Por favor confirma tu contraseña.
+            </div>
           </div>
         </div>
       </div>
@@ -670,10 +686,11 @@
       </div>
 
       <!-- Submit -->
-      <button class="btn-register">
+      <button type="submit" class="btn-register">
         <i class="bi bi-person-plus-fill" style="font-size:1.15rem;"></i>
         Crear cuenta
       </button>
+      </form>
 
       <!-- Login link -->
       <p class="login-link">¿Ya tienes una cuenta? <a href="#">Inicia sesión</a></p>
@@ -753,6 +770,19 @@
       icon.className = 'bi bi-eye';
     }
   }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('registrationForm');
+    if (!form) return;
+
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    });
+  });
 </script>
 </body>
 </html>
