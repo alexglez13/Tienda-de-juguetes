@@ -249,9 +249,9 @@ Este proyecto está bajo la licencia **MIT**. Consulta el archivo [`LICENSE`](./
 
 ## 📬 Contacto
 
-**Tu Nombre** — [@tu_usuario](https://twitter.com/tu_usuario) — tuemail@ejemplo.com
+**Desarrollador** — [@alexglez13](https://github.com/alexglez13)
 
-🔗 Repositorio: [https://github.com/tu-usuario/toyworld](https://github.com/tu-usuario/toyworld)
+🔗 Repositorio: [https://github.com/alexglez13/Tienda-de-juguetes](https://github.com/alexglez13/Tienda-de-juguetes)
 
 ---
 
